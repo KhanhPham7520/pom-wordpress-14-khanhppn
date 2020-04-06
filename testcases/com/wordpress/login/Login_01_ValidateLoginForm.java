@@ -3,7 +3,7 @@ package com.wordpress.login;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -14,8 +14,8 @@ public class Login_01_ValidateLoginForm {
 
 	@BeforeClass
 	public void beforeClass() {
-
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", "/Users/apple/Desktop/chromedriver");
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
 	}
 
