@@ -1,31 +1,30 @@
 package com.wordpress.login;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import pageObjects.DashboardPageObject;
+import pageObjects.LoginPageObject;
 
 public class Login_01_ValidateLoginForm {
 	private WebDriver driver;
+	LoginPageObject loginPage;
+	DashboardPageObject dashboardPage;
 
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", "/Users/apple/Desktop/chromedriver");
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
-	}
-
-	@BeforeMethod
-	public void beforeMethod() {
 		driver.get("https://automationfc.wordpress.com/wp-admin");
+
 	}
 
 	@Test
 	public void Validate_01_EmptyEmail() {
+
 	}
 
 	@Test

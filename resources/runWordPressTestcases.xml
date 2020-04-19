@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Word Press">
 
-	<test name="Run on Firefox">
+	<test name="Run on Chrome">
 		<classes>
-			<class name="com.wordpress.login.Login_01_ValidateLoginForm" />
+			<!-- <class name="com.wordpress.login.Login_01_ValidateLoginForm" /> -->
+			<class name="com.wordpress.testcases_demo.Login_04_Page_Object_Pattern" />
 		</classes>
 	</test>
 </suite>
