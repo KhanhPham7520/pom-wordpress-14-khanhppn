@@ -6,15 +6,14 @@ import commons.AbstractPage;
 import pageUI.DashboardPageUI;
 
 public class DashboardPageObject extends AbstractPage {
+	WebDriver driver;
 
 	public DashboardPageObject(WebDriver driver) {
-		super(driver);
+		this.driver = driver;
 	}
 
-	private WebDriver driver;
-
 	public boolean isHeaderTextDisplayed() {
-		return isElementDisplay(DashboardPageUI.HEADER_DASHBOARD);
+		return isElementDisplay(driver, DashboardPageUI.HEADER_DASHBOARD);
 	}
 
 }

@@ -7,35 +7,34 @@ import pageUI.LoginPageUI;
 
 public class LoginPageObject extends AbstractPage {
 
+	WebDriver driver;
+
 	public LoginPageObject(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
+		this.driver = driver;
 	}
 
-	private WebDriver driver;
-
 	public void inputToEmailTextbox(String inputValue) {
-		sendKeyToElement(LoginPageUI.EMAIL_TEXTBOX, inputValue);
+		sendKeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, inputValue);
 	}
 
 	public void clickToContinueButton() {
-		clickToElement(LoginPageUI.CONTINUE_BUTTON);
+		clickToElement(driver, LoginPageUI.CONTINUE_BUTTON);
 	}
 
 	public void clickToLoginButton() {
-		clickToElement(LoginPageUI.LOGIN_BUTTON);
+		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
 	}
 
 	public String getEmailErrorMessage() {
-		return getTextElement(LoginPageUI.VALIDATION_ERROR_MSG);
+		return getTextElement(driver, LoginPageUI.VALIDATION_ERROR_MSG);
 	}
 
 	public boolean isDisplayMessageError() {
-		return isElementDisplay(LoginPageUI.VALIDATION_ERROR_MSG);
+		return isElementDisplay(driver, LoginPageUI.VALIDATION_ERROR_MSG);
 	}
 
 	public void inputToPasswordTextbox(String passwordValue) {
-		sendKeyToElement(LoginPageUI.PASSWORD_TEXTBOX, passwordValue);
+		sendKeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, passwordValue);
 	}
 
 }
