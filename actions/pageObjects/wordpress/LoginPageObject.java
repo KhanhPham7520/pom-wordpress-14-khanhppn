@@ -1,4 +1,4 @@
-package pageObjects;
+package pageObjects.wordpress;
 
 import org.openqa.selenium.WebDriver;
 
@@ -9,6 +9,7 @@ public class LoginPageObject extends AbstractPage {
 
 	public LoginPageObject(WebDriver driver) {
 		super(driver);
+		// TODO Auto-generated constructor stub
 	}
 
 	private WebDriver driver;

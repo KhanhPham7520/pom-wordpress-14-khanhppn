@@ -1,5 +1,5 @@
 package commons;
 
-public abstract class AbstractTest {
+public abstract class AbstractTest extends CommonFunctions {
 
 }

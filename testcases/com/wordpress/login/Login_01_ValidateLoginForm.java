@@ -6,13 +6,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageObjects.DashboardPageObject;
-import pageObjects.LoginPageObject;
+import pageObjects.wordpress.DashboardPageObject;
+import pageObjects.wordpress.LoginPageObject;
 
 public class Login_01_ValidateLoginForm {
 	private WebDriver driver;
 	LoginPageObject loginPage;
 	DashboardPageObject dashboardPage;
+	public static final String rootFolderPath = System.getProperty("user.dir");
 
 	@BeforeClass
 	public void beforeClass() {

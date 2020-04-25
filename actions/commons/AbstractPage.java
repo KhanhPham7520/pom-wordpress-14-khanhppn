@@ -13,10 +13,6 @@ public abstract class AbstractPage {
 	private Select select;
 	long timeOut = 15;
 
-	public AbstractPage(WebDriver driver) {
-		this.driver = driver;
-	}
-
 	public void openUrl(WebDriver driver, String urlValue) {
 		driver.get(urlValue);
 	}
@@ -29,39 +25,39 @@ public abstract class AbstractPage {
 		return By.xpath(locator);
 	}
 
-	public WebElement findElementByXpath(String locator) {
+	public WebElement findElementByXpath(WebDriver driver, String locator) {
 		return driver.findElement(byXpathLocator(locator));
 	}
 
-	public void sendKeyToElement(String locator, String inputValue) {
+	public void sendKeyToElement(WebDriver driver, String locator, String inputValue) {
 		waitForElementVisible(driver, locator);
-		clearExistedValue(locator);
-		findElementByXpath(locator).sendKeys(inputValue);
+		clearExistedValue(driver, locator);
+		findElementByXpath(driver, locator).sendKeys(inputValue);
 	}
 
-	public void clickToElement(String locator) {
+	public void clickToElement(WebDriver driver, String locator) {
 		waitForElementClickable(driver, locator);
-		findElementByXpath(locator).click();
+		findElementByXpath(driver, locator).click();
 	}
 
 	public String getAttributeValue(WebElement elementValue, String locator, String attributeType) {
-		elementValue = findElementByXpath(locator);
+		elementValue = findElementByXpath(driver, locator);
 		return elementValue.getAttribute(attributeType);
 	}
 
-	public void selectItemInDropdown(String locator, String selectValue) {
-		select = new Select(findElementByXpath(locator));
+	public void selectItemInDropdown(WebDriver driver, String locator, String selectValue) {
+		select = new Select(findElementByXpath(driver, locator));
 		select.selectByVisibleText(selectValue);
 	}
 
-	public String getTextElement(String locator) {
-		return findElementByXpath(locator).getText();
+	public String getTextElement(WebDriver driver, String locator) {
+		return findElementByXpath(driver, locator).getText();
 	}
 
-	public void checkTheCheckbox(String locator) {
-		boolean checkTheCheckbox = findElementByXpath(locator).isSelected();
+	public void checkTheCheckbox(WebDriver driver, String locator) {
+		boolean checkTheCheckbox = findElementByXpath(driver, locator).isSelected();
 		if (!checkTheCheckbox) {
-			findElementByXpath(locator).click();
+			findElementByXpath(driver, locator).click();
 		}
 	}
 
@@ -81,13 +77,13 @@ public abstract class AbstractPage {
 		driverWait.until(ExpectedConditions.visibilityOfElementLocated(byXpathLocator(locator)));
 	}
 
-	public void clearExistedValue(String locator) {
-		findElementByXpath(locator).clear();
+	public void clearExistedValue(WebDriver driver, String locator) {
+		findElementByXpath(driver, locator).clear();
 	}
 
-	public boolean isElementDisplay(String locator) {
+	public boolean isElementDisplay(WebDriver driver, String locator) {
 		waitForElementVisible(driver, locator);
-		return findElementByXpath(locator).isDisplayed();
+		return findElementByXpath(driver, locator).isDisplayed();
 	}
 
 }
