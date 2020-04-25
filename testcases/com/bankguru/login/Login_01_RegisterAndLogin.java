@@ -73,13 +73,8 @@ public class Login_01_RegisterAndLogin {
 	@Test
 	public void TC_02_Login() {
 		loginPage.inputToUserIDTextbox(userIDValue);
-		System.out.println("Login UserID = " + userIDValue);
-
 		loginPage.inputToPasswordTextbox(passwordValue);
-		System.out.println("Login password = " + passwordValue);
-
 		loginPage.clickToLoginButton();
-
 		// khởi tạo Home Page lên
 		homePage = new HomePageObject(driver);
 
